@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class LogInActivity extends AppCompatActivity {
 
     EditText username, password;
@@ -40,6 +43,15 @@ public class LogInActivity extends AppCompatActivity {
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
                     if(checkuserpass==true){
                         Toast.makeText(LogInActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        try {
+                            FileWriter myWriter = new FileWriter("username.txt");
+                            myWriter.write(String.valueOf(username));
+                            myWriter.close();
+                            System.out.println("Successfully wrote to the file.");
+                        } catch (IOException e) {
+                            System.out.println("An error occurred.");
+                            e.printStackTrace();
+                        }
                         Intent intent  = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(intent);
                     }else{
