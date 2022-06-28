@@ -19,7 +19,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users(username TEXT primary key,email TEXT, password TEXT)");
-
     }
 
     @Override
@@ -46,6 +45,14 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public Boolean checkEmail(String email){
+        SQLiteDatabase MyDB= this.getWritableDatabase();
+        Cursor cursor=MyDB.rawQuery("Select * from users where email = ?", new String[]{email});
+        if(cursor.getCount()>0)
+            return true;
+        return false;
     }
 
     public Boolean checkusernamepassword(String username, String password){
