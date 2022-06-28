@@ -13,7 +13,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String passPatternSpecial="\" !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\"";
-    EditText username,email,password, repassword;
+    EditText username,email,password, repassword,firstName,lastName,phone;
     Button register,goToLogIn;
 
     DBHelper DB;
@@ -66,6 +66,9 @@ public class RegisterActivity extends AppCompatActivity {
         email=(EditText) findViewById(R.id.email);
         password=(EditText) findViewById(R.id.password);
         repassword=(EditText) findViewById(R.id.repass);
+        firstName=(EditText) findViewById(R.id.fNAme);
+        lastName=(EditText) findViewById(R.id.lName);
+        phone=(EditText) findViewById(R.id.phone);
         register=(Button) findViewById(R.id.register);
         goToLogIn=(Button) findViewById(R.id.gotologin);
 
@@ -78,8 +81,11 @@ public class RegisterActivity extends AppCompatActivity {
                 String mail=email.getText().toString();
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
+                String fName=firstName.getText().toString();
+                String lName=lastName.getText().toString();
+                String phoneNumber=phone.getText().toString();
 
-                if(user.equals("")||mail.equals("")||pass.equals("")||repass.equals(""))
+                if(user.equals("")||mail.equals("")||pass.equals("")||repass.equals("")||fName.equals("")||lName.equals("")||phoneNumber.equals(""))
                     Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     if(isCorrectEmail(mail)==true) {
@@ -89,10 +95,10 @@ public class RegisterActivity extends AppCompatActivity {
                                     Boolean checkuser = DB.checkusername(user);
                                     Boolean checkemail = DB.checkEmail(mail);
                                     if (checkuser == false && checkemail == false) {
-                                        Boolean insert = DB.insertData(user, mail, pass);
+                                        Boolean insert = DB.insertData(user,fName,lName,phoneNumber,mail,pass);
                                         if (insert == true) {
                                             Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                            Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
                                             startActivity(intent);
                                         } else {
                                             Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();

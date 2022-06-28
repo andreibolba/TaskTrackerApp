@@ -12,6 +12,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <android.gesture.GestureOverlayView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="280dp"
@@ -22,6 +25,18 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/hello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Hello @user!"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </android.gesture.GestureOverlayView>
 
         <TextView
             android:layout_width="match_parent"
