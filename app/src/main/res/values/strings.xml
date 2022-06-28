@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TaskTrackerApp</string>
+    <string name="twitterUsername">\@joeytribbiani</string>
 </resources>
