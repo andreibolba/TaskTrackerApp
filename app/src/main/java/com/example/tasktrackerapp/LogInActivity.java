@@ -20,6 +20,7 @@ public class LogInActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
@@ -41,7 +42,7 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(LogInActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     User loggedUser=DB.getUser(user,pass);
-                    Toast.makeText(LogInActivity.this, loggedUser.toString(), Toast.LENGTH_SHORT).show();
+
                     if(loggedUser!=null){
                         Toast.makeText(LogInActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
                         try {

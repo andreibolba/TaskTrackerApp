@@ -7,20 +7,30 @@
     android:background="#FF954CFB"
     tools:context=".HomeActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="61dp"
+        ></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rvTasks">
 
     </androidx.recyclerview.widget.RecyclerView>
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/twitter"
-    android:id="@+id/fab"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-    ></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/twitter"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </RelativeLayout>
