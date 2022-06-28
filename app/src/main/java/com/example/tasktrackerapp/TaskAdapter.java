@@ -45,7 +45,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         TextView textView = holder.titleTextView;
         textView.setText(task.getName());
         TextView textView2 = holder.descriptionTextView;
-        textView.setText(task.getDescription());
+        textView2.setText(task.getDescription());
     }
 
     @Override

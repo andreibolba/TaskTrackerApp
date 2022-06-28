@@ -13,7 +13,14 @@
         android:id="@+id/rvTasks">
 
     </androidx.recyclerview.widget.RecyclerView>
-
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/twitter"
+    android:id="@+id/fab"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    ></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </RelativeLayout>

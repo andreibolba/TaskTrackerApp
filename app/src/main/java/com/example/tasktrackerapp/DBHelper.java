@@ -20,7 +20,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table tasks(username TEXT primary key,title TEXT, description TEXT)");
+        MyDB.execSQL("drop Table if exists users");
+        MyDB.execSQL("drop Table if exists tasks");
+        MyDB.execSQL("create Table tasks(username TEXT,title TEXT, description TEXT)");
         MyDB.execSQL("create Table users(username TEXT primary key,email TEXT, password TEXT)");
 
 
@@ -28,9 +30,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-//        MyDB.execSQL("drop Table if exists users");
-//        MyDB.execSQL("drop Table if exists tasks");
-        onCreate(MyDB);
+        MyDB.execSQL("drop Table if exists users");
+        MyDB.execSQL("drop Table if exists tasks");
 
     }
 
@@ -46,8 +47,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Boolean insertTasks(SQLiteDatabase MyDB, String username, String name, String description) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
+    public Boolean insertTasks(String username, String title, String description) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
 //        ContentValues contentValues = new ContentValues();
 //        contentValues.put("username", username);
 //        contentValues.put("name", name);
@@ -57,11 +58,11 @@ public class DBHelper extends SQLiteOpenHelper {
 //            return false;
 //        return true;
         String ROW1 = "INSERT INTO " + "tasks" + " ("
-                + "username"
-                + "name"
-                + "description" + ") Values (" + username + "," +name+"," +description +")";
-       MyDB.execSQL(ROW1);
-       return true;
+                + "username,"
+                + "title,"
+                + "description" + ") Values ('" + username + "','" + title + "','" + description + "')";
+        MyDB.execSQL(ROW1);
+        return true;
     }
 
     public Boolean checkusername(String username) {
@@ -84,21 +85,24 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public ArrayList<Task> getTasks(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        this.insertTasks("sghs", "trash", "take it out");
-        this.insertTasks("dff", "trash", "take it out");
-        this.insertTasks("ffff", "trash", "take it out");
+        try {
+            this.insertTasks("aurel", "trash", "take it out");
+            this.insertTasks("dff", "trash", "take it out");
+            this.insertTasks("ffff", "trash", "take it out");
+        } catch (RuntimeException re) {
+            System.out.println(re);
+        }
         Cursor cursor = MyDB.rawQuery("Select * from tasks where username = ?", new String[]{username});
         System.out.println(cursor.getCount());
         System.out.println("================================================================");
         int index = 0;
         ArrayList<Task> tasks = new ArrayList<>();
+        cursor.moveToFirst();
         while (index < cursor.getCount()) {
             tasks.add(new Task(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
             cursor.moveToNext();
             index++;
         }
-
-        tasks.add(new Task("asdfsaf", "trash", "marcel"));
         return tasks;
     }
 }

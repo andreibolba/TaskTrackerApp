@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         // Initialize contacts
-        ArrayList<Task> tasks= DB.getTasks("ianis");
+        ArrayList<Task> tasks=  DB.getTasks("aurel");
         // Create adapter passing in the sample user data
         TaskAdapter adapter = new TaskAdapter(tasks);
         // Attach the adapter to the recyclerview to populate items
