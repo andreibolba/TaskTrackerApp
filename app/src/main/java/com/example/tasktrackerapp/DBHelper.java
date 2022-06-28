@@ -21,11 +21,13 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users(username TEXT primary key,firstname TEXT, lastname TEXT, phonenumber TEXT, email TEXT, password TEXT)");
+        MyDB.execSQL("create Table tasks(username TEXT,title TEXT, description TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
+        MyDB.execSQL("drop Table if exists tasks");
     }
 
     public Boolean insertData(String username,String fname,String lname,String phonenumber,String email,String password){
@@ -60,15 +62,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public Boolean checkusernamepassword(String username, String password){
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[] {username,password});
-        if(cursor.getCount()>0)
-            return true;
-        else
-            return false;
-    }
-
     public User getUser(String username, String password){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[] {username,password});
@@ -85,5 +78,47 @@ public class DBHelper extends SQLiteOpenHelper {
             return loggedUser;
         }
         return new User();
+    }
+
+    public Boolean insertTasks(String username, String title, String description) {
+          SQLiteDatabase MyDB = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("username", username);
+//        contentValues.put("name", name);
+//        contentValues.put("description", description);
+//        long result = MyDB.insert("tasks", null, contentValues);
+//        if (result == -1)
+//            return false;
+//        return true;
+        String ROW1 = "INSERT INTO " + "tasks" + " ("
+                + "username,"
+                + "title,"
+                + "description" + ") Values ('" + username + "','" + title + "','" + description + "')";
+        MyDB.execSQL(ROW1);
+        return true;
+    }
+
+
+    public ArrayList<Task> getTasks(String username) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        try {
+            this.insertTasks("aurel", "trash", "take it out");
+            this.insertTasks("dff", "trash", "take it out");
+            this.insertTasks("ffff", "trash", "take it out");
+        } catch (RuntimeException re) {
+            System.out.println(re);
+        }
+        Cursor cursor = MyDB.rawQuery("Select * from tasks where username = ?", new String[]{username});
+        System.out.println(cursor.getCount());
+        System.out.println("================================================================");
+        int index = 0;
+        ArrayList<Task> tasks = new ArrayList<>();
+        cursor.moveToFirst();
+        while (index < cursor.getCount()) {
+            tasks.add(new Task(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
+            cursor.moveToNext();
+            index++;
+        }
+        return tasks;
     }
 }

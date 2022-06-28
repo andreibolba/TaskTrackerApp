@@ -16,8 +16,5 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
-
-        helloText=(TextView) findViewById(R.id.hello);
-        helloText.setText("Hello "+loggedUSer.getUsername());
     }
 }
