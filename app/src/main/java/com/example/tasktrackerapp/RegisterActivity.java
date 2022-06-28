@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String passPatternSpecial="\" !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\"";
     EditText username,email,password, repassword;
     Button register,goToLogIn;
 
@@ -19,6 +20,41 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Boolean isCorrectEmail(String email){
         return email.matches(emailPattern)==true?true:false;
+    }
+
+    private int checkPassword(String pass){
+        if(pass.toString().length()<8)
+            return 101;
+        Boolean isAllRight=false;
+        for(int i=0;i<pass.length();i++) {
+            if (pass.charAt(i) <= '9' && pass.charAt(i) >= '0')
+                isAllRight = true;
+        }
+        if(isAllRight==false)
+            return 102;
+        isAllRight=false;
+        for(int i=0;i<pass.length();i++) {
+            if (pass.charAt(i) <= 'Z' && pass.charAt(i) >= 'A')
+                isAllRight = true;
+        }
+        if(isAllRight==false)
+            return 103;
+        isAllRight=false;
+        for(int i=0;i<pass.length();i++) {
+            if (pass.charAt(i) <= 'z' && pass.charAt(i) >= 'a')
+                isAllRight = true;
+        }
+        if(isAllRight==false)
+            return 104;
+        isAllRight=false;
+        for(int i=0;i<pass.length();i++){
+            for (int j=0;j<passPatternSpecial.length();j++)
+                if(pass.charAt(i)==passPatternSpecial.charAt(j))
+                    isAllRight=true;
+        }
+        if(isAllRight==false)
+            return 105;
+        return 100;
     }
 
     @Override
@@ -48,25 +84,47 @@ public class RegisterActivity extends AppCompatActivity {
                 else{
                     if(isCorrectEmail(mail)==true) {
                         if (pass.equals(repass)) {
-                            Boolean checkuser = DB.checkusername(user);
-                            Boolean checkemail = DB.checkEmail(mail);
-                            if (checkuser == false && checkemail == false) {
-                                Boolean insert = DB.insertData(user, mail, pass);
-                                if (insert == true) {
-                                    Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                                    startActivity(intent);
-                                } else {
-                                    Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                if (checkemail == true && checkuser == true) {
-                                    Toast.makeText(RegisterActivity.this, "User and email already exists! please sign in", Toast.LENGTH_SHORT).show();
-                                } else if (checkemail == true) {
-                                    Toast.makeText(RegisterActivity.this, "Email already exists! please sign in", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(RegisterActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
-                                }
+                            switch (checkPassword(pass)) {
+                                case 100:
+                                    Boolean checkuser = DB.checkusername(user);
+                                    Boolean checkemail = DB.checkEmail(mail);
+                                    if (checkuser == false && checkemail == false) {
+                                        Boolean insert = DB.insertData(user, mail, pass);
+                                        if (insert == true) {
+                                            Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                            startActivity(intent);
+                                        } else {
+                                            Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    } else {
+                                        if (checkemail == true && checkuser == true) {
+                                            Toast.makeText(RegisterActivity.this, "User and email already exists! please sign in", Toast.LENGTH_SHORT).show();
+                                        } else if (checkemail == true) {
+                                            Toast.makeText(RegisterActivity.this, "Email already exists! please sign in", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(RegisterActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    break;
+                                case 101:
+                                    Toast.makeText(RegisterActivity.this, "Passwords is not 8 letters long", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 102:
+                                    Toast.makeText(RegisterActivity.this, "Passwords must contains digits", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 103:
+                                    Toast.makeText(RegisterActivity.this, "Passwords must contains big letters", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 104:
+                                    Toast.makeText(RegisterActivity.this, "Passwords must contains low letter letters", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 105:
+                                    Toast.makeText(RegisterActivity.this, "Passwords must contains special charaters", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                    break;
                             }
                         } else {
                             Toast.makeText(RegisterActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
