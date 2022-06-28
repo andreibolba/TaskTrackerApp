@@ -44,17 +44,9 @@ public class LogInActivity extends AppCompatActivity {
                     User loggedUser=DB.getUser(user,pass);
 
                     if(loggedUser!=null){
-                        Toast.makeText(LogInActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        try {
-                            FileWriter myWriter = new FileWriter("username.txt");
-                            myWriter.write(String.valueOf(username));
-                            myWriter.close();
-                            System.out.println("Successfully wrote to the file.");
-                        } catch (IOException e) {
-                            System.out.println("An error occurred.");
-                            e.printStackTrace();
-                        }
+//                      Toast.makeText(LogInActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
                         Intent intent  = new Intent(getApplicationContext(), HomeActivity.class);
+                        Toast.makeText(LogInActivity.this, loggedUser.toString(), Toast.LENGTH_SHORT).show();
                         HomeActivity.loggedUSer=loggedUser;
                         startActivity(intent);
                     }else{

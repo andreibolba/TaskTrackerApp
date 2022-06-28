@@ -9,14 +9,13 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/profileScreen"
-        android:src="@drawable/ic_profile_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="3dp"
         android:layout_marginBottom="61dp"
-        ></com.google.android.material.floatingactionbutton.FloatingActionButton>
+        android:src="@drawable/ic_profile_icon"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

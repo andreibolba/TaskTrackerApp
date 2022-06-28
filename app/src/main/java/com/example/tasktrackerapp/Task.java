@@ -5,6 +5,11 @@ public class Task {
         private String name;
         private String username;
 
+        public Task()
+        {
+
+        }
+
         public Task(String username, String name, String description) {
                 this.description = description;
                 this.name = name;

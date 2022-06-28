@@ -102,22 +102,25 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<Task> getTasks(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         try {
-//            this.insertTasks("aurel", "trash", "take it out");
-//            this.insertTasks("dff", "trash", "take it out");
-//            this.insertTasks("ffff", "trash", "take it out");
+            this.insertTasks("aurel", "trash", "take it out");
+            this.insertTasks("dff", "trash", "take it out");
+            this.insertTasks("ffff", "trash", "take it out");
         } catch (RuntimeException re) {
             System.out.println(re);
         }
-        Cursor cursor = MyDB.rawQuery("Select * from tasks where username = (?)", new String[]{username});
+        Cursor cursor = MyDB.rawQuery("Select * from tasks where username = ?", new String[]{username});
         System.out.println(cursor.getCount());
         System.out.println("================================================================");
-        int index = 0;
+//        int index = 0;
         ArrayList<Task> tasks = new ArrayList<>();
         cursor.moveToFirst();
-        while (index < cursor.getCount()) {
-            tasks.add(new Task(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
+        while (!cursor.isAfterLast()) {
+            Task task = new Task();
+            task.setUsername(cursor.getString(0));
+            task.setName(cursor.getString(1));
+            task.setDescription(cursor.getString(2));
+            tasks.add(task);
             cursor.moveToNext();
-            index++;
         }
         return tasks;
     }
