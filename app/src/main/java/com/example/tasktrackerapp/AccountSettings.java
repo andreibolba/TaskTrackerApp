@@ -13,7 +13,7 @@ public class AccountSettings extends AppCompatActivity {
     public static User loggedUser;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String passPatternSpecial="\" !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\"";
-    EditText username,email,password, repassword,firstName,lastName,phone;
+    EditText email,password, repassword,firstName,lastName,phone;
     Button edit,gotoaccount,delete,logout;
 
     DBHelper DB;
@@ -23,7 +23,6 @@ public class AccountSettings extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_settings);
-        username=(EditText) findViewById(R.id.usernameSettings);
         email=(EditText) findViewById(R.id.emailSettings);
         password=(EditText) findViewById(R.id.passwordSettings);
         repassword=(EditText) findViewById(R.id.repassSettings);
@@ -40,7 +39,6 @@ public class AccountSettings extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = username.getText().toString();
                 String mail = email.getText().toString();
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
@@ -48,7 +46,7 @@ public class AccountSettings extends AppCompatActivity {
                 String lName = lastName.getText().toString();
                 String phoneNumber = phone.getText().toString();
 
-                if (user.equals("") && mail.equals("") && pass.equals("") && repass.equals("") && fName.equals("") && lName.equals("") && phoneNumber.equals(""))
+                if (mail.equals("") && pass.equals("") && repass.equals("") && fName.equals("") && lName.equals("") && phoneNumber.equals(""))
                     Toast.makeText(AccountSettings.this, "Please enter at least one field", Toast.LENGTH_SHORT).show();
                 else {
                     User editedUser=loggedUser;
