@@ -43,6 +43,7 @@ public class User {
     public void setPass(String pass) { this.pass = pass; }
     public void setPhone(String phone) { this.phone = phone; }
     public void setUsername(String username) { this.username = username; }
+    public void setLogged(Boolean logged) { this.logged = logged; }
 
     @Override
     public String toString() {

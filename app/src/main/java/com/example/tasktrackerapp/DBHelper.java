@@ -75,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
             loggedUser.setPhone(cursor.getString(3));
             loggedUser.setEmail(cursor.getString(4));
             loggedUser.setPass(cursor.getString(5));
+            loggedUser.setLogged(true);
             return loggedUser;
         }
         return new User();
@@ -111,7 +112,6 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = MyDB.rawQuery("Select * from tasks where username = ?", new String[]{username});
         System.out.println(cursor.getCount());
         System.out.println("================================================================");
-//        int index = 0;
         ArrayList<Task> tasks = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

@@ -42,11 +42,10 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(LogInActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     User loggedUser=DB.getUser(user,pass);
-
-                    if(loggedUser!=null){
-//                      Toast.makeText(LogInActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                    if(loggedUser.getUsername()!=null){
+                        Toast.makeText(LogInActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
                         Intent intent  = new Intent(getApplicationContext(), HomeActivity.class);
-                        Toast.makeText(LogInActivity.this, loggedUser.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LogInActivity.this, loggedUser.toString(), Toast.LENGTH_SHORT).show();
                         HomeActivity.loggedUSer=loggedUser;
                         startActivity(intent);
                     }else{

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AccountSettings">
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="720dp"
+        android:layout_weight="4"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_login" />
+    <View
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+</LinearLayout>
+
+
+<LinearLayout
+android:gravity="center"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical">
+
+<TextView
+    android:layout_margin="?actionBarSize"
+    android:textStyle="bold"
+    android:textSize="35sp"
+    android:textColor="#fff"
+    android:text="Account settings"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+<LinearLayout
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="15dp"
+    android:paddingBottom="10dp"
+    android:layout_marginTop="-35dp">
+
+    <EditText
+        android:id="@+id/fNameSettings"
+        android:layout_width="180dp"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="First Name"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#eee"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/lNameSettings"
+        android:layout_width="180dp"
+        android:layout_height="?actionBarSize"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rounded_corner"
+        android:hint="Last Name"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#eee"
+        android:textSize="17sp" />
+</LinearLayout>
+<LinearLayout
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="15dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <EditText
+        android:id="@+id/usernameSettings"
+        android:layout_width="180dp"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Username"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#eee"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/phoneSettings"
+        android:layout_width="180dp"
+        android:layout_height="?actionBarSize"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rounded_corner"
+        android:hint="Phone Number"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:inputType="phone"
+        android:textColor="#fff"
+        android:textColorHint="#eee"
+        android:textSize="17sp" />
+</LinearLayout>
+
+<EditText
+    android:id="@+id/emailSettings"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/rounded_corner"
+    android:hint="Email"
+    android:paddingLeft="10dp"
+    android:textColor="#fff"
+    android:textColorHint="#eee"
+    android:textSize="17sp" />
+
+<EditText
+    android:id="@+id/passwordSettings"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/rounded_corner"
+    android:hint="Password"
+    android:inputType="textPassword"
+    android:paddingLeft="10dp"
+    android:textColor="#fff"
+    android:textColorHint="#eee"
+    android:textSize="17sp" />
+
+<EditText
+    android:id="@+id/repassSettings"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/rounded_corner"
+    android:hint="Retype password"
+    android:inputType="textPassword"
+    android:paddingLeft="10dp"
+    android:textColor="#fff"
+    android:textColorHint="#eee"
+    android:textSize="17sp" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <Button
+        android:id="@+id/backtoaccount"
+        android:layout_width="180dp"
+        android:layout_height="38dp"
+        android:background="@drawable/rounded_corner_button"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginRight="10dp"
+        android:text="back"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="180dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rounded_corner_button"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="edit"
+        android:textColor="#ffffff" />
+</LinearLayout>
+</LinearLayout>
+
+</RelativeLayout>

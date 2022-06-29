@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.function.ToDoubleBiFunction;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -35,16 +36,22 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PersonalProfileActivity.class);
-                //PersonalProfileActivity.loggedUSer=loggedUSer;
+                PersonalProfileActivity.loggedUser=loggedUSer;
                 startActivity(intent);
             }
         });
 
+
+        //Todo: Aici daca user-ul nu are task-uri crapa
+
+        /*
+
+
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvTasks);
 
-        ArrayList<Task> tasks = DB.getTasks("aurel");
+        ArrayList<Task> tasks = DB.getTasks(loggedUSer.getUsername());
         TaskAdapter adapter = new TaskAdapter(tasks);
         rvContacts.setAdapter(adapter);
-        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));*/
     }
 }
