@@ -131,6 +131,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public void deleteTask(String username, String taskTitle, String taskDesc)
+    {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        MyDB.delete("tasks", "username = ? and title = ? and description = ?", new String[] {username, taskTitle, taskDesc});
+    }
+
 
     public ArrayList<Task> getTasks(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();

@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="100dp"
-            android:textColor="@color/black"
             android:paddingLeft="15dp"
             android:paddingTop="10dp"
             android:text="test"
+            android:textColor="@color/black"
             android:textSize="60dp" />
 
         <TextView
@@ -37,18 +37,34 @@
             android:textSize="35dp" />
     </LinearLayout>
 
-        <Button
-            android:id="@+id/backtoaccount"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/rounded_corner_button"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="285dp"
-            android:layout_marginRight="10dp"
-            android:text="done"
-            android:textColor="#ffffff"/>
+    <Button
+        android:id="@+id/backtoaccount"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_corner_button"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="done"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/deleteTask"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="delete"
+        android:textColor="#ffffff" />
+
+
+
+
 
 
 </RelativeLayout>
