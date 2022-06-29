@@ -4,10 +4,14 @@
       <root url="jar://$PROJECT_DIR$/../firebase-authentication-android-master/caches/transforms-3/efb4ea5a2efed336e2dada72e4ab6a46/transformed/jetified-appcompat-resources-1.4.2/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../firebase-authentication-android-master/caches/transforms-3/efb4ea5a2efed336e2dada72e4ab6a46/transformed/jetified-appcompat-resources-1.4.2/res" />
       <root url="file://$PROJECT_DIR$/../firebase-authentication-android-master/caches/transforms-3/efb4ea5a2efed336e2dada72e4ab6a46/transformed/jetified-appcompat-resources-1.4.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2d9e164044bbae962aca42ad65fda0c0/transformed/appcompat-resources-1.4.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2d9e164044bbae962aca42ad65fda0c0/transformed/appcompat-resources-1.4.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2d9e164044bbae962aca42ad65fda0c0/transformed/appcompat-resources-1.4.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../firebase-authentication-android-master/caches/modules-2/files-2.1/androidx.appcompat/appcompat-resources/1.4.2/8f78838745a125dea62514f7b4f70e8776a6244e/appcompat-resources-1.4.2-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat-resources/1.4.2/8f78838745a125dea62514f7b4f70e8776a6244e/appcompat-resources-1.4.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -30,10 +30,14 @@
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/drawable/ic_profile_icon.xml" value="0.2085" />
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/drawable/ic_settings.xml" value="0.2085" />
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/drawable/option_one.xml" value="0.1325" />
+        <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/drawable/task_bg.xml" value="0.2085" />
+        <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/drawable/twitter.xml" value="0.2085" />
+        <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/activity_account_settings.xml" value="0.12613981762917933" />
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/activity_log_in.xml" value="0.22083333333333333" />
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/activity_mainpage.xml" value="0.4" />
-        <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/activity_personal_profile.xml" value="0.1" />
+        <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/activity_personal_profile.xml" value="0.2" />
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/activity_register.xml" value="0.10869565217391304" />
+        <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/input_new_task.xml" value="0.25833333333333336" />
         <entry key="..\:/UNITBV-SEM2/pdapp/TaskTrackerApp/app/src/main/res/layout/task_item.xml" value="0.176" />
       </map>
     </option>

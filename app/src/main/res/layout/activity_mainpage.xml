@@ -26,12 +26,12 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:src="@drawable/ic_add_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/twitter"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+        android:background="@drawable/twitter"
+        android:src="@drawable/ic_add_item"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </RelativeLayout>

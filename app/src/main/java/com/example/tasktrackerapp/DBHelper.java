@@ -122,16 +122,25 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public Boolean checkTitle(String taskTitle)
+    {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from tasks where title = ?", new String[] {taskTitle});
+        if (cursor.getCount() > 0)
+            return false;
+        return true;
+    }
+
 
     public ArrayList<Task> getTasks(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
-        try {
-            this.insertTasks("aurel", "trash", "take it out");
-            this.insertTasks("dff", "trash", "take it out");
-            this.insertTasks("ffff", "trash", "take it out");
-        } catch (RuntimeException re) {
-            System.out.println(re);
-        }
+//        try {
+//            this.insertTasks("aurel", "trash", "take it out");
+//            this.insertTasks("dff", "trash", "take it out");
+//            this.insertTasks("ffff", "trash", "take it out");
+//        } catch (RuntimeException re) {
+//            System.out.println(re);
+//        }
         Cursor cursor = MyDB.rawQuery("Select * from tasks where username = ?", new String[]{username});
         System.out.println(cursor.getCount());
         System.out.println("================================================================");
