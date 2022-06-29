@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
         MyDB.execSQL("drop Table if exists tasks");
     }
 
-    public Boolean insertData(String username,String fname,String lname,String phonenumber,String email,String password){
+    public Boolean insertUser(String username, String fname, String lname, String phonenumber, String email, String password){
         SQLiteDatabase MyDB=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("username",username);
@@ -40,6 +40,21 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("email",email);
         contentValues.put("password",password);
         long result = MyDB.insert("users",null,contentValues);
+        if(result==-1)
+            return false;
+        return true;
+    }
+
+    public Boolean updateUser(User user,String username){
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("username",user.getUsername());
+        contentValues.put("firstname",user.getfName());
+        contentValues.put("lastname",user.getlName());
+        contentValues.put("phoneNumber",user.getPhone());
+        contentValues.put("email",user.getEmail());
+        contentValues.put("password",user.getPass());
+        long result= MyDB.update("users",contentValues, "username=?",new String[]{username});
         if(result==-1)
             return false;
         return true;
@@ -60,6 +75,14 @@ public class DBHelper extends SQLiteOpenHelper {
         if(cursor.getCount()>0)
             return true;
         return false;
+    }
+
+    public Boolean deleteAccount(User user){
+        SQLiteDatabase MyDB=this.getWritableDatabase();
+        long result= MyDB.delete("users", "username=?",new String[]{user.getUsername()});
+        if(result==-1)
+            return false;
+        return true;
     }
 
     public User getUser(String username, String password){

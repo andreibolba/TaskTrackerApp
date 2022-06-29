@@ -13,7 +13,7 @@ public class PersonalProfileActivity extends AppCompatActivity {
 
     public static User loggedUser;
     TextView username,email,password,firstName,lastName,phone,fullName;
-    Button settings;
+    Button settings,logout,back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,8 @@ public class PersonalProfileActivity extends AppCompatActivity {
         phone=(TextView) findViewById(R.id.phone);
         fullName=(TextView) findViewById(R.id.titlename);
         settings=(Button) findViewById(R.id.accountSettings);
+        logout=(Button)findViewById(R.id.logout);
+        back=(Button)findViewById(R.id.backtomainpage);
 
         username.setText(loggedUser.getUsername());
         email.setText(loggedUser.getEmail());
@@ -43,6 +45,22 @@ public class PersonalProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AccountSettings.class);
                 AccountSettings.loggedUser=loggedUser;
+                startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),LogInActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(intent);
             }
         });

@@ -88,30 +88,17 @@ android:orientation="vertical">
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
-    <EditText
-        android:id="@+id/usernameSettings"
-        android:layout_width="180dp"
-        android:layout_height="?actionBarSize"
-        android:background="@drawable/rounded_corner"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Username"
-        android:paddingStart="10dp"
-        android:paddingLeft="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#eee"
-        android:textSize="17sp" />
 
     <EditText
         android:id="@+id/phoneSettings"
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:background="@drawable/rounded_corner"
         android:hint="Phone Number"
         android:paddingStart="10dp"
-        android:paddingLeft="10dp"
+        android:paddingLeft="15dp"
         android:inputType="phone"
         android:textColor="#fff"
         android:textColorHint="#eee"
@@ -195,6 +182,37 @@ android:orientation="vertical">
         android:text="edit"
         android:textColor="#ffffff" />
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="150dp"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/deleteSetting"
+            android:layout_width="180dp"
+            android:layout_height="38dp"
+            android:background="@drawable/rounded_corner_button"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginRight="10dp"
+            android:text="delete"
+            android:textColor="#ffffff"/>
+
+        <Button
+            android:id="@+id/logoutSettings"
+            android:layout_width="180dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rounded_corner_button"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="log out"
+            android:textColor="#ffffff" />
+    </LinearLayout>
 </LinearLayout>
 
 </RelativeLayout>
