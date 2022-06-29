@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
-    android:background="@color/purple_500"
+    android:layout_height="220dp"
+    android:background="@drawable/task_bg"
     android:id="@+id/taskItem"
+    android:layout_margin="20dp"
     >
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/itemTitle"
         android:textSize="60dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:layout_marginRight="100dp"
+        android:text="test"
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/itemDesc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/itemTitle"
         android:textSize="35dp"
-        android:layout_below="@+id/itemTitle"/>
+        android:layout_marginRight="100dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:text="test"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/backtoaccount"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/rounded_corner_button"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginRight="10dp"
+            android:text="done"
+            android:textColor="#ffffff"/>
 
 
 </RelativeLayout>
